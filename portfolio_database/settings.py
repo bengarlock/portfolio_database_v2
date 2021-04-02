@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'accounts',
-    'jobapps'
+    'jobapps',
+    'resy_scanner',
 ]
 
 MIDDLEWARE = [
