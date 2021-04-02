@@ -14,7 +14,6 @@ from pathlib import Path
 import passwords
 import os
 import corsheaders
-from corsheaders.defaults import default_headers
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,7 +30,7 @@ SECRET_KEY = passwords.return_secret_key()
 DEBUG = True
 
 # ALLOWED_HOSTS = ['192.168.86.39', 'localhost', '127.0.0.1', 'bengarlock.com', 'localhost:3000']
-ALLOWED_HOSTS=['*']
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -68,17 +67,22 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
 }
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "http://127.0.0.1:8000",
-#     "https://www.bengarlock.com"
-# ]
-#
-# CORS_ALLOW_HEADERS = default_headers + (
-#     'Access-Control-Allow-Origin',
-# )
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    'http://127.0.0.1:8000',
+    'https://www.bengarlock.com:6320',
+    'https://www.bengarlock.com:6321',
+    'https://www.bengarlock.com:6322',
+    'https://www.bengarlock.com:6323',
+    'https://www.bengarlock.com:6324',
+    'https://www.bengarlock.com:6325',
+    'https://www.bengarlock.com:6326',
+    'https://www.bengarlock.com:6327',
+    'https://www.bengarlock.com:6328',
+    'https://www.bengarlock.com:6329',
+]
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = False
 
 ROOT_URLCONF = 'portfolio_database.urls'
 

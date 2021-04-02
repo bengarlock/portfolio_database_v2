@@ -5,7 +5,7 @@ from .models import Book, Guest, Slot, Restaurant, Table
 class GuestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guest
-        fields = ['id', 'first_name', 'last_name', 'phone_number', 'guest_notes', 'root_user', 'slots']
+        fields = '__all__'
 
 
 class SlotSerializer(serializers.ModelSerializer):
@@ -33,6 +33,7 @@ class SlotSerializer(serializers.ModelSerializer):
 
 class BookSerializer(serializers.ModelSerializer):
     slots = SlotSerializer(many=True, required=False)
+
     class Meta:
         model = Book
         fields = '__all__'
