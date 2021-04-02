@@ -9,6 +9,8 @@ class GuestSerializer(serializers.ModelSerializer):
 
 
 class SlotSerializer(serializers.ModelSerializer):
+    guest = GuestSerializer()
+
     class Meta:
         model = Slot
         fields = ['id', 'booked', 'time', 'party_size', 'status', 'reservation_notes', 'tables', 'book', 'guest']
@@ -31,7 +33,6 @@ class SlotSerializer(serializers.ModelSerializer):
 
 class BookSerializer(serializers.ModelSerializer):
     slots = SlotSerializer(many=True, required=False)
-
     class Meta:
         model = Book
         fields = '__all__'

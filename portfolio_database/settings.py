@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import passwords
 import os
+import corsheaders
+from corsheaders.defaults import default_headers
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +30,8 @@ SECRET_KEY = passwords.return_secret_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.86.39', 'localhost', '127.0.0.1', 'bengarlock.com']
-
+# ALLOWED_HOSTS = ['192.168.86.39', 'localhost', '127.0.0.1', 'bengarlock.com', 'localhost:3000']
+ALLOWED_HOSTS=['*']
 
 # Application definition
 
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'rest_framework',
+    'corsheaders',
     'knox',
     'accounts',
     'jobapps',
@@ -51,16 +55,30 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
 }
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "http://127.0.0.1:8000",
+#     "https://www.bengarlock.com"
+# ]
+#
+# CORS_ALLOW_HEADERS = default_headers + (
+#     'Access-Control-Allow-Origin',
+# )
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'portfolio_database.urls'
 
