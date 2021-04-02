@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'rest_framework',
     'knox',
     'accounts',
     'jobapps',
     'resy_scanner',
+    'tablehost',
 ]
 
 MIDDLEWARE = [

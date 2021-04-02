@@ -8,7 +8,8 @@ class Jobapp(models.Model):
     url = models.CharField(max_length=1000)
     owner = models.ForeignKey(User, related_name="jobapps", on_delete=models.CASCADE, null=True)
     technologies = ArrayField(models.CharField(max_length=255), default=list, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     status = models.TextField(default="Applied", max_length=50, blank=True)
     contact = models.TextField(default="Hiring Manager", blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True)
