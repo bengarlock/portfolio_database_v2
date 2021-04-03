@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+knox = "*"
+django-cors-headers = "*"
+django-filter = "*"
+django-cryptography = "*"
+jinja2 = "*"
+install = "*"
+boto3 = "*"
+psycopg2-binary = "*"
+django-rest-knox = "*"
+faker = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
