@@ -5,7 +5,7 @@ from faker import Faker
 import random
 
 #url = "http://127.0.0.1:8000/"
-url = "https://bengarlock.com/api/v1/tablehost/"
+url = "http://127.0.0.1:8000/api/v1/tablehost/"
 today = date.today()
 books = []
 
