@@ -1,17 +1,6 @@
 from .models import ResyRestaurant, ResyTotalCount
-from rest_framework import viewsets, permissions, serializers
-
-
-class ResyRestaurantSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ResyRestaurant
-        fields = '__all__'
-
-
-class ResyTotalCountSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ResyTotalCount
-        fields = '__all__'
+from rest_framework import viewsets, permissions
+from .serializers import ResyRestaurantSerializer, ResyTotalCountSerializer
 
 
 class ResyRestaurantViewSet(viewsets.ModelViewSet):
