@@ -17,6 +17,7 @@ psycopg2-binary = "*"
 django-rest-knox = "*"
 faker = "*"
 requests = "*"
+pipfile = "*"
 
 [dev-packages]
 
