@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'knox',
     'accounts',
     'jobapps',
-    'resy_scanner',
+    'competition_scanner',
     'tablehost',
 ]
 
