@@ -22,16 +22,16 @@ from resy_scanner.views import ResyRestaurantViewSet, ResyTotalCountViewSet
 
 router = routers.DefaultRouter()
 
-router.register("api/v1/tablehost/books", BookView)
-router.register("api/v1/tablehost/slots", SlotView)
-router.register("api/v1/tablehost/restaurants", RestaurantView)
-router.register("api/v1/tablehost/guests", GuestView)
-router.register("api/v1/tablehost/tables", TableView)
-router.register("api/v1/jobapps", JobappViewSet)
-router.register("api/v1/resy/restaurants", ResyRestaurantViewSet)
-router.register("api/v1/resy/totals", ResyTotalCountViewSet)
+router.register("v1/tablehost/books", BookView)
+router.register("v1/tablehost/slots", SlotView)
+router.register("v1/tablehost/restaurants", RestaurantView)
+router.register("v1/tablehost/guests", GuestView)
+router.register("v1/tablehost/tables", TableView)
+router.register("v1/jobapps", JobappViewSet)
+router.register("v1/resy/restaurants", ResyRestaurantViewSet)
+router.register("v1/resy/totals", ResyTotalCountViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls))
+    path('api/', include(router.urls))
 ]
