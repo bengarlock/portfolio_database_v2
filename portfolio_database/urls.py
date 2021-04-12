@@ -15,11 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from tablehost.views import BookView, SlotView, RestaurantView, GuestView, TableView
+from jobapps.views import JobappViewSet
+from resy_scanner.views import ResyRestaurantViewSet, ResyTotalCountViewSet
+
+router = routers.DefaultRouter()
+
+router.register("api/v1/tablehost/books", BookView)
+router.register("api/v1/tablehost/slots", SlotView)
+router.register("api/v1/tablehost/restaurants", RestaurantView)
+router.register("api/v1/tablehost/guests", GuestView)
+router.register("api/v1/tablehost/tables", TableView)
+router.register("api/v1/jobapps", JobappViewSet)
+router.register("api/v1/resy/restaurants", ResyRestaurantViewSet)
+router.register("api/v1/resy/totals", ResyTotalCountViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('jobapps.urls')),
-    path('', include('accounts.urls')),
-    path('', include('resy_scanner.urls')),
-    path('', include('tablehost.urls'))
+    path('', include(router.urls))
 ]
