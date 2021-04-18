@@ -13,6 +13,7 @@ class ResyRestaurantViewSet(viewsets.ModelViewSet):
     serializer_class = ResyRestaurantSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filterset_fields = ['resy_id']
+    #https://bengarlock.com/api/v1/resy/restaurants/?resy_id=6822
 
 
 class ResyTotalCountViewSet(viewsets.ModelViewSet):
