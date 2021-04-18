@@ -2,6 +2,7 @@ from .models import ResyRestaurant, ResyTotalCount, YelpRestaurant, YelpTotals
 from rest_framework import viewsets, permissions
 from .serializers import ResyRestaurantSerializer, ResyTotalCountSerializer, YelpRestaurantSerializer, \
     YelpTotalCountSerializer
+import django_filters.rest_framework
 
 
 class ResyRestaurantViewSet(viewsets.ModelViewSet):
@@ -10,6 +11,8 @@ class ResyRestaurantViewSet(viewsets.ModelViewSet):
     # ]
     queryset = ResyRestaurant.objects.all()
     serializer_class = ResyRestaurantSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ['resy_id']
 
 
 class ResyTotalCountViewSet(viewsets.ModelViewSet):
