@@ -2,7 +2,6 @@ import requests
 import json
 import passwords
 
-
 def pull_resy_data():
     url = "https://api.resy.com/2/venues?location_id=ny"
     headers = {
