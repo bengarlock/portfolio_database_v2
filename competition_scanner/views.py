@@ -3,12 +3,16 @@ from rest_framework import viewsets, permissions
 from .serializers import ResyRestaurantSerializer, ResyTotalCountSerializer, YelpRestaurantSerializer, \
     YelpTotalCountSerializer
 import django_filters.rest_framework
+from .competition_sync import update_api
+
+
 
 
 class ResyRestaurantViewSet(viewsets.ModelViewSet):
     # permission_classes = [
     #     permissions.IsAuthenticated
     # ]
+    update_api()
     queryset = ResyRestaurant.objects.all()
     serializer_class = ResyRestaurantSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
