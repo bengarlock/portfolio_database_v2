@@ -6,6 +6,7 @@ class ResyRestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = ResyRestaurant
         fields = '__all__'
+        extra_kwargs = {"neighborhood": {"trim_whitespace": False}}
 
 
 class ResyTotalCountSerializer(serializers.ModelSerializer):
