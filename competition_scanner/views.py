@@ -1,5 +1,5 @@
 from .models import ResyRestaurant, ResyTotalCount, YelpRestaurant, YelpTotals
-from rest_framework import viewsets, filters, permissions
+from rest_framework import viewsets, permissions
 from .serializers import ResyRestaurantSerializer, ResyTotalCountSerializer, YelpRestaurantSerializer, \
     YelpTotalCountSerializer
 import django_filters.rest_framework
@@ -12,8 +12,8 @@ class ResyRestaurantViewSet(viewsets.ModelViewSet):
 
     queryset = ResyRestaurant.objects.all()
     serializer_class = ResyRestaurantSerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ["resy_id", "created_at", "restaurant_name"]
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ["resy_id", "created_at", "restaurant_name"]
 
     #https://bengarlock.com/api/v1/resy/restaurants/?resy_id=6822
     #https://bengarlock.com/api/v1/resy/restaurants/?created_at=2021-04-19T00:41:37.895084Z
