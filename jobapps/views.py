@@ -8,9 +8,9 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class JobappViewSet(viewsets.ModelViewSet):
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
+    # permission_classes = [
+    #     permissions.IsAuthenticated
+    # ]
 
     queryset = Jobapp.objects.all()
     serializer_class = PostSerializer
