@@ -30,6 +30,8 @@ class ResyTotalCountViewSet(viewsets.ModelViewSet):
 class YelpRestaurantViewSet(viewsets.ModelViewSet):
     queryset = YelpRestaurant.objects.all()
     serializer_class = YelpRestaurantSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ["yelp_id", "created_at", "restaurant_name"]
 
 
 class YelpTotalCountViewSet(viewsets.ModelViewSet):
