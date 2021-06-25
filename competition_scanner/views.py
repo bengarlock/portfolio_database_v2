@@ -1,4 +1,4 @@
-from .models import ResyRestaurant, ResyTotalCount, YelpRestaurant, YelpTotals
+from .models import ResyRestaurant, ResyTotalCount, ResyCollections, YelpRestaurant, YelpTotals
 from rest_framework import viewsets, permissions
 from .serializers import ResyRestaurantSerializer, ResyTotalCountSerializer, YelpRestaurantSerializer, \
     YelpTotalCountSerializer
@@ -24,6 +24,13 @@ class ResyTotalCountViewSet(viewsets.ModelViewSet):
     #     permissions.IsAuthenticated
     # ]
     queryset = ResyTotalCount.objects.all()
+    serializer_class = ResyTotalCountSerializer
+
+class ResyCollectionViewSet(viewsets.ModelViewSet):
+    # permission_classes = [
+    #     permissions.IsAuthenticated
+    # ]
+    queryset = ResyCollections.objects.all()
     serializer_class = ResyTotalCountSerializer
 
 
