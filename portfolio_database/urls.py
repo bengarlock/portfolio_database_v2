@@ -18,7 +18,7 @@ from django.urls import path, include
 from rest_framework import routers
 from tablehost.views import BookView, SlotView, RestaurantView, GuestView, TableView
 from jobapps.views import JobappViewSet
-from competition_scanner.views import ResyRestaurantViewSet, ResyTotalCountViewSet, ResyCollections, YelpRestaurantViewSet, YelpTotalCountViewSet
+from competition_scanner.views import ResyRestaurantViewSet, ResyTotalCountViewSet, ResyCollectionViewSet, YelpRestaurantViewSet, YelpTotalCountViewSet
 
 router = routers.DefaultRouter()
 
@@ -30,7 +30,7 @@ router.register("v1/tablehost/tables", TableView)
 router.register("v1/jobapps", JobappViewSet)
 router.register("v1/resy/restaurants", ResyRestaurantViewSet)
 router.register("v1/resy/totals", ResyTotalCountViewSet)
-router.register("v1/resy/collections", ResyCollections)
+router.register("v1/resy/collections", ResyCollectionViewSet)
 router.register("v1/yelp/restaurants", YelpRestaurantViewSet)
 router.register("v1/yelp/totals", YelpTotalCountViewSet)
 
