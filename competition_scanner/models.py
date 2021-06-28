@@ -9,16 +9,12 @@ class ResyRestaurant(models.Model):
     neighborhood = models.CharField(max_length=3000, blank=True)
     url = models.CharField(max_length=3000, blank=True, null=True)
     address = models.CharField(max_length=3000, blank=True, null=True)
+    active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
 class ResyTotalCount(models.Model):
     total_count = models.IntegerField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, blank=True)
-
-class ResyCollections(models.Model):
-    collection = ArrayField(models.CharField(max_length=255), default=list, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ResyRestaurant, ResyTotalCount, ResyCollections, YelpRestaurant, YelpTotals
+from .models import ResyRestaurant, ResyTotalCount, YelpRestaurant, YelpTotals
 
 
 class ResyRestaurantSerializer(serializers.ModelSerializer):
@@ -12,11 +12,6 @@ class ResyRestaurantSerializer(serializers.ModelSerializer):
 class ResyTotalCountSerializer(serializers.ModelSerializer):
     class Meta:
         model = ResyTotalCount
-        fields = '__all__'
-
-class ResyCollectionsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ResyCollections
         fields = '__all__'
 
 
