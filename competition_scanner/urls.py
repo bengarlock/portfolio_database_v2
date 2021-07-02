@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .views import ResyRestaurantViewSet, ResyTotalCountViewSet, ResyCollectionViewSet
+from .views import ResyRestaurantViewSet, ResyTotalCountViewSet
 
 
 router = routers.DefaultRouter()

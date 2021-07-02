@@ -19,6 +19,7 @@ from rest_framework import routers
 from tablehost.views import BookView, SlotView, RestaurantView, GuestView, TableView
 from jobapps.views import JobappViewSet
 from competition_scanner.views import ResyRestaurantViewSet, ResyTotalCountViewSet, YelpRestaurantViewSet, YelpTotalCountViewSet
+from garden_mate.views import GardenDayViewSet
 
 router = routers.DefaultRouter()
 
@@ -32,6 +33,7 @@ router.register("v1/resy/restaurants", ResyRestaurantViewSet)
 router.register("v1/resy/totals", ResyTotalCountViewSet)
 router.register("v1/yelp/restaurants", YelpRestaurantViewSet)
 router.register("v1/yelp/totals", YelpTotalCountViewSet)
+router.register("v1/garden/days", GardenDayViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
