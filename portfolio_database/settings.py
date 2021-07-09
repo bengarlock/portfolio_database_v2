@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'competition_scanner',
     'tablehost',
     'garden_mate',
+    'price_scanner',
 ]
 
 MIDDLEWARE = [

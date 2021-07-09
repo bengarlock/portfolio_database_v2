@@ -20,6 +20,7 @@ from tablehost.views import BookView, SlotView, RestaurantView, GuestView, Table
 from jobapps.views import JobappViewSet
 from competition_scanner.views import ResyRestaurantViewSet, ResyTotalCountViewSet, YelpRestaurantViewSet, YelpTotalCountViewSet
 from garden_mate.views import GardenDayViewSet
+from price_scanner.views import PriceUrlVewSet
 
 router = routers.DefaultRouter()
 
@@ -34,6 +35,7 @@ router.register("v1/resy/totals", ResyTotalCountViewSet)
 router.register("v1/yelp/restaurants", YelpRestaurantViewSet)
 router.register("v1/yelp/totals", YelpTotalCountViewSet)
 router.register("v1/garden/days", GardenDayViewSet)
+router.register("v1/price_scanner/urls", PriceUrlVewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
