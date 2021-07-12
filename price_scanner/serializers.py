@@ -1,7 +1,14 @@
 from rest_framework import serializers
-from .models import PriceUrls
+from .models import Price, Favorite
 
-class PriceUrlsSerializer(serializers.ModelSerializer):
+
+class PriceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PriceUrls
+        model = Price
+        fields = '__all__'
+
+
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorite
         fields = '__all__'
