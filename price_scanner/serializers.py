@@ -9,7 +9,9 @@ class PriceSerializer(serializers.ModelSerializer):
 
 
 class FavoriteSerializer(serializers.ModelSerializer):
+    prices = PriceSerializer(many=True, required=False)
+
     class Meta:
-        depth = 2
         model = Favorite
-        fields = '__all__'
+        fields = ['id', 'name', 'url', 'image', 'created_at', 'updated_at', 'prices']
+        depth = 2
