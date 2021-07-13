@@ -15,6 +15,6 @@ class Favorite(models.Model):
 
 class Price(models.Model):
     price = models.CharField(max_length=3000, blank=True)
-    favorite = models.ForeignKey(Favorite, related_name="prices", on_delete=models.CASCADE)
+    favorite = models.ForeignKey(Favorite, related_name="prices", on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
