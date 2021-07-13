@@ -14,4 +14,4 @@ class FavoriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favorite
         fields = ['id', 'name', 'url', 'image', 'created_at', 'updated_at', 'prices']
-        depth = 2
+
