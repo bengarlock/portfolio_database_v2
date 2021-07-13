@@ -10,5 +10,6 @@ class PriceSerializer(serializers.ModelSerializer):
 
 class FavoriteSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 2
         model = Favorite
         fields = '__all__'
