@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'tablehost',
     'garden_mate',
     'price_scanner',
+    'health_tracker',
 ]
 
 MIDDLEWARE = [
