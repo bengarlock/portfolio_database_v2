@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'garden_mate',
     'price_scanner',
     'health_tracker',
+    'image_store'
 ]
 
 MIDDLEWARE = [
