@@ -74,6 +74,7 @@ CORS_ALLOWED_ORIGINS = [
     'https://bengarlock.com',
     'http://localhost:3000',
     'http://127.0.0.1:8000',
+    'http://localhost:63343',
     'https://www.bengarlock.com:6320',
     'https://www.bengarlock.com:6321',
     'https://www.bengarlock.com:6322',
@@ -107,6 +108,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'portfolio_database.wsgi.application'
+
 
 
 # Database
@@ -163,3 +165,5 @@ USE_TZ = True
 STATIC_URL = '/api/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+MEDIA_URL = '/api/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')

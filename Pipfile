@@ -18,6 +18,7 @@ django-rest-knox = "*"
 faker = "*"
 requests = "*"
 pipfile = "*"
+pillow = "*"
 
 [dev-packages]
 
