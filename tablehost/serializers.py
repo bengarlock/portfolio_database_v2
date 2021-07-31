@@ -14,16 +14,9 @@ class SlotSerializer(serializers.ModelSerializer):
         fields = ['id', 'booked', 'time', 'party_size', 'status', 'reservation_notes', 'tables', 'guest', 'book']
         depth = 1
 
-class SlotSerializerNoBookView(serializers.ModelSerializer):
-    #excludes book view so book endpoint does not render redunant data.
-    class Meta:
-        model = Slot
-        fields = ['id', 'booked', 'time', 'party_size', 'status', 'reservation_notes', 'tables', 'guest']
-        depth = 1
-
 
 class BookSerializer(serializers.ModelSerializer):
-    slots = SlotSerializerNoBookView(many=True, required=False)
+    slots = SlotSerializer(many=True, required=False)
     class Meta:
         model = Book
         fields = '__all__'
