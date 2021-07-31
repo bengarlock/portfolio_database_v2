@@ -24,6 +24,7 @@ from competition_scanner.views import ResyRestaurantViewSet, ResyTotalCountViewS
 from garden_mate.views import GardenDayViewSet
 from price_scanner.views import PriceVewSet, FavoriteViewSet
 from health_tracker.views import PlayerViewset
+from image_store.views import ImageStoreViewset
 
 router = routers.DefaultRouter()
 
@@ -41,6 +42,8 @@ router.register("v1/garden/days", GardenDayViewSet)
 router.register("v1/price_scanner/prices", PriceVewSet)
 router.register("v1/price_scanner/favorites", FavoriteViewSet)
 router.register("v1/healthtracker/players", PlayerViewset)
+router.register("v1/image_store", ImageStoreViewset)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
