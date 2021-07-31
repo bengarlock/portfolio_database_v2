@@ -3,7 +3,7 @@ from django.contrib.postgres.fields import ArrayField
 
 
 class Book(models.Model):
-    date = models.DateField(auto_now_add=True, blank=True)
+    date = models.DateField()
     restaurant_id = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
