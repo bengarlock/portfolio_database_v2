@@ -12,7 +12,6 @@ class SlotSerializer(serializers.ModelSerializer):
     class Meta:
         model = Slot
         fields = ['id', 'booked', 'time', 'party_size', 'status', 'reservation_notes', 'tables', 'guest', 'book']
-        depth = 1
 
 
 class BookSerializer(serializers.ModelSerializer):
