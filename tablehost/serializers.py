@@ -8,18 +8,19 @@ class GuestSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+
 class SlotSerializer(serializers.ModelSerializer):
     class Meta:
         model = Slot
-        fields = ['id', 'booked', 'time', 'party_size', 'status', 'reservation_notes', 'tables', 'guest', 'book']
+        fields = '__all__'
 
 
 class BookSerializer(serializers.ModelSerializer):
+    guest = GuestSerializer(many=True, required=False)
     slots = SlotSerializer(many=True, required=False)
     class Meta:
         model = Book
         fields = '__all__'
-        depth = 2
 
 
 class RestaurantSerializer(serializers.ModelSerializer):
