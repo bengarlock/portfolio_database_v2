@@ -72,7 +72,8 @@ def create_slots(array):
                     "book": book_id,
                     "guest": 1
                 }
-                requests.post(url + "slots/", data=obj)
+                data = requests.post(url + "slots/", data=obj)
+                print(data.text)
 
 
 def create_guests(data_cap):
@@ -192,9 +193,9 @@ def create_reservations(limit):
 
 
 create_books(100)
-create_root_user()
-create_restaurant()
+# create_root_user()
+# create_restaurant()
 create_slots(array=books)
-create_guests(1000)
-create_tables()
-create_reservations(limit=2000)
+# create_guests(1000)
+# create_tables()
+# create_reservations(limit=2000)
