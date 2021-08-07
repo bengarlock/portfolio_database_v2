@@ -14,10 +14,10 @@ class Guest(models.Model):
     last_name = models.TextField(default='', max_length=500, blank=True)
     phone_number = models.TextField(default='', blank=True)
     guest_notes = models.TextField(default='', blank=True)
-    root_user = models.BooleanField(default=False, blank=True)
     slot = ArrayField(models.CharField(max_length=15), default=list, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
+    active = models.BooleanField(default=True)
 
 
 class Restaurant(models.Model):
