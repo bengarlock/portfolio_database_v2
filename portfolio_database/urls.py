@@ -31,7 +31,7 @@ router = routers.DefaultRouter()
 router.register("v1/tablehost/books", BookView)
 router.register("v1/tablehost/slots", SlotView)
 router.register("v1/tablehost/restaurants", RestaurantView)
-router.register("v1/tablehost/guests", GuestView)
+# router.register("v1/tablehost/guests", GuestView, basename='guests')
 router.register("v1/tablehost/tables", TableView)
 router.register("v1/jobapps", JobappViewSet)
 router.register("v1/resy/restaurants", ResyRestaurantViewSet)
@@ -47,7 +47,8 @@ router.register("v1/image_store", ImageStoreViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/v1/tablehost/guests/', GuestView.as_view(), name="guests")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
