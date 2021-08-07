@@ -26,7 +26,8 @@ class GuestView(viewsets.ModelViewSet):
     queryset = Guest.objects.all()
     serializer_class = GuestSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ["first_name", "last_name", "phone_number"]
+    search_fields = ["first_name", "last_name", "phone_number", 'active']
+    print(search_fields)
 
 
 class TableView(viewsets.ModelViewSet):
