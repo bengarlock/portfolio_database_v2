@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-from rest_framework import viewsets, filters, generics
-from .models import Book, Slot, Restaurant, Guest, Table
-from .serializers import BookSerializer, SlotSerializer, RestaurantSerializer, GuestSerializer, TableSerializer
-=======
+
 from rest_framework import viewsets, filters
 from .models import Book, Slot, Restaurant, Guest, Table, Status
 from .serializers import BookSerializer, SlotSerializer, RestaurantSerializer, GuestSerializer, TableSerializer, \
     StatusSerializer
->>>>>>> 61b2bc17df4f745b7a7f20d0e9766fc86a0cea3e
 import django_filters.rest_framework
 from rest_framework.pagination import PageNumberPagination
 
