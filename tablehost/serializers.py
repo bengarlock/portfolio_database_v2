@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Book, Guest, Slot, Restaurant, Table
+from .models import Book, Guest, Slot, Restaurant, Table, Status
 
 
 class GuestSerializer(serializers.ModelSerializer):
@@ -10,14 +10,18 @@ class GuestSerializer(serializers.ModelSerializer):
 
 class SlotSerializer(serializers.ModelSerializer):
     guest = GuestSerializer(required=False)
+
     class Meta:
         model = Slot
-        fields = ['id', 'booked', 'time', 'party_size', 'status', 'reservation_notes', 'tables', 'created_at', 'updated_at', 'book', 'guest']
+        fields = ['id', 'booked', 'time', 'party_size', 'status', 'reservation_notes', 'tables', 'created_at',
+                  'updated_at', 'book', 'guest']
+
     depth = 1
 
 
 class BookSerializer(serializers.ModelSerializer):
     slots = SlotSerializer(many=True, required=False)
+
     class Meta:
         model = Book
         fields = ['id', 'date', 'restaurant_id', 'created_at', 'updated_at', 'slots']
@@ -32,4 +36,10 @@ class RestaurantSerializer(serializers.ModelSerializer):
 class TableSerializer(serializers.ModelSerializer):
     class Meta:
         model = Table
+        fields = '__all__'
+
+
+class StatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Status
         fields = '__all__'

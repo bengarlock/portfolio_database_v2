@@ -1,6 +1,7 @@
 from rest_framework import viewsets, filters
-from .models import Book, Slot, Restaurant, Guest, Table
-from .serializers import BookSerializer, SlotSerializer, RestaurantSerializer, GuestSerializer, TableSerializer
+from .models import Book, Slot, Restaurant, Guest, Table, Status
+from .serializers import BookSerializer, SlotSerializer, RestaurantSerializer, GuestSerializer, TableSerializer, \
+    StatusSerializer
 import django_filters.rest_framework
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import generics
@@ -27,9 +28,14 @@ class GuestView(viewsets.ModelViewSet):
     queryset = Guest.objects.all()
     serializer_class = GuestSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ["first_name", "last_name", "phone_number", "active"]
+    search_fields = ["first_name", "last_name", "phone_number"]
 
 
 class TableView(viewsets.ModelViewSet):
     queryset = Table.objects.all()
     serializer_class = TableSerializer
+
+
+class StatusView(viewsets.ModelViewSet):
+    queryset = Status.objects.all()
+    serializer_class = StatusSerializer

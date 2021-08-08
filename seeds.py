@@ -4,7 +4,7 @@ import json
 from faker import Faker
 import random
 
-url = "http://127.0.0.1:8000/"
+url = "http://127.0.0.1:8000/api/v1/tablehost/"
 #url = "https://bengarlock.com/api/v1/tablehost/"
 today = date.today()
 books = []
@@ -103,11 +103,11 @@ def create_guests(data_cap):
             "last_name": last_name,
             "phone_number": phone_number,
             "guest_notes": notes,
-            "root_user": False,
+            "active": True,
         }
 
         guest = requests.post(url + "guests/", data=obj)
-        print(guest.content)
+        print(guest.text)
         index += 1
 
 
@@ -192,10 +192,10 @@ def create_reservations(limit):
         index += 1
 
 
-create_books(100)
+# create_books(100)
 # create_root_user()
 # create_restaurant()
-create_slots(array=books)
-# create_guests(1000)
+# create_slots(array=books)
+create_guests(1000)
 # create_tables()
 # create_reservations(limit=2000)

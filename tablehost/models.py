@@ -49,3 +49,9 @@ class Table(models.Model):
     reservation_id = models.IntegerField(blank=True, default=1)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
+
+
+class Status(models.Model):
+    color = models.CharField(default='#fff', max_length=1000)
+    label = models.CharField(default='', max_length=1000)
+    status_type = models.CharField(default='confirmation', max_length=1000)
