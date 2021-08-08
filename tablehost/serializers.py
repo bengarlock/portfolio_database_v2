@@ -9,14 +9,12 @@ class GuestSerializer(serializers.ModelSerializer):
 
 
 class SlotSerializer(serializers.ModelSerializer):
-    guest = GuestSerializer(required=False)
+    # guest = GuestSerializer(required=False)
 
 
     class Meta:
         model = Slot
         fields = '__all__'
-
-
 
     # def update(self, instance, validated_data):
     #     instance.booked = validated_data.get('booked', instance.booked)
