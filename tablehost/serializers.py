@@ -9,7 +9,7 @@ class GuestSerializer(serializers.ModelSerializer):
 
 
 class SlotSerializer(serializers.ModelSerializer):
-    guest = GuestSerializer(required=False)
+    # guest = GuestSerializer(required=False)
 
 
     class Meta:
