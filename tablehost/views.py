@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 from rest_framework import viewsets, filters, generics
 from .models import Book, Slot, Restaurant, Guest, Table
 from .serializers import BookSerializer, SlotSerializer, RestaurantSerializer, GuestSerializer, TableSerializer
+=======
+from rest_framework import viewsets, filters
+from .models import Book, Slot, Restaurant, Guest, Table, Status
+from .serializers import BookSerializer, SlotSerializer, RestaurantSerializer, GuestSerializer, TableSerializer, \
+    StatusSerializer
+>>>>>>> 61b2bc17df4f745b7a7f20d0e9766fc86a0cea3e
 import django_filters.rest_framework
 from rest_framework.pagination import PageNumberPagination
+
 
 
 class BookView(viewsets.ModelViewSet):
@@ -22,20 +30,18 @@ class RestaurantView(viewsets.ModelViewSet):
     serializer_class = RestaurantSerializer
 
 
-class GuestView(generics.ListAPIView):
-    # queryset = Guest.objects.all()
+class GuestView(viewsets.ModelViewSet):
+    queryset = Guest.objects.all()
     serializer_class = GuestSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ["first_name", "last_name", "phone_number", "active", ]
-    ordering_fields = ['last_name', 'phone_number']
-    ordering = ['last_name']
-
-    def get_queryset(self):
-        queryset = Guest.objects.all()
-        return queryset
-
+    search_fields = ["first_name", "last_name", "phone_number"]
 
 
 class TableView(viewsets.ModelViewSet):
     queryset = Table.objects.all()
     serializer_class = TableSerializer
+
+
+class StatusView(viewsets.ModelViewSet):
+    queryset = Status.objects.all()
+    serializer_class = StatusSerializer

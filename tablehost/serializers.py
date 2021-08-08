@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Book, Guest, Slot, Restaurant, Table
+from .models import Book, Guest, Slot, Restaurant, Table, Status
 
 
 class GuestSerializer(serializers.ModelSerializer):
@@ -36,4 +36,10 @@ class RestaurantSerializer(serializers.ModelSerializer):
 class TableSerializer(serializers.ModelSerializer):
     class Meta:
         model = Table
+        fields = '__all__'
+
+
+class StatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Status
         fields = '__all__'
