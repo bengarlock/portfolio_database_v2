@@ -5,6 +5,7 @@ import django_filters.rest_framework
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import generics
 
+
 class BookView(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
@@ -22,18 +23,11 @@ class RestaurantView(viewsets.ModelViewSet):
     serializer_class = RestaurantSerializer
 
 
-class GuestView(generics.ListAPIView):
-    # queryset = Guest.objects.all()
+class GuestView(viewsets.ModelViewSet):
+    queryset = Guest.objects.all()
     serializer_class = GuestSerializer
-    # filter_backends = [filters.SearchFilter]
-    # search_fields = ["first_name", "last_name", "phone_number", "active"]
-    # print(search_fields)
-    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-
-    def get_queryset(self):
-        queryset = Guest.objects.all()
-        return queryset
-
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["first_name", "last_name", "phone_number", "active"]
 
 
 class TableView(viewsets.ModelViewSet):
