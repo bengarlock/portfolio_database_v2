@@ -8,9 +8,15 @@ class GuestSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class SlotSerializer(serializers.ModelSerializer):
-    # guest = GuestSerializer(required=False)
+class SlotSerializerWithGuest(serializers.ModelSerializer):
+    guest = GuestSerializer(required=False)
 
+    class Meta:
+        model = Slot
+        fields = '__all__'
+
+
+class SlotSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Slot
@@ -26,27 +32,26 @@ class SlotSerializer(serializers.ModelSerializer):
     #     instance.book = validated_data.get('book', instance.book)
     #     instance.save()
     #
-    #     if validated_data.pop('guest'):
-    #         guest_data = validated_data.pop("guest")
-    #         guest = instance.guest
-    #         guest.first_name = guest_data.get('first_name', guest.first_name)
-    #         guest.last_name = guest_data.get('last_name', guest.last_name)
-    #         guest.phone_number = guest_data.get('phone_number', guest.phone_number)
-    #         guest.guest_notes = guest_data.get('guest_notes', guest.guest_notes)
-    #         guest.active = guest_data.get('active', guest.active)
-    #         guest.id = guest_data.get('id', guest.id)
-    #         guest.save()
+    #     guest_data = validated_data.pop("guest")
+    #     guest = instance.guest
+    #     guest.id = guest_data.get('id', guest.id)
+    #     guest.first_name = guest_data.get('first_name', guest.first_name)
+    #     guest.last_name = guest_data.get('last_name', guest.last_name)
+    #     guest.phone_number = guest_data.get('phone_number', guest.phone_number)
+    #     guest.guest_notes = guest_data.get('guest_notes', guest.guest_notes)
+    #     guest.active = guest_data.get('active', guest.active)
+    #     guest.save()
     #
     #     return instance
 
 
-
-
 class BookSerializer(serializers.ModelSerializer):
-    slots = SlotSerializer(many=True, required=False)
+    slots = SlotSerializerWithGuest(many=True, required=False)
+
     class Meta:
         model = Book
         fields = ['id', 'date', 'restaurant_id', 'created_at', 'updated_at', 'slots']
+
 
 class RestaurantSerializer(serializers.ModelSerializer):
     class Meta:
