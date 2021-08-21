@@ -55,3 +55,4 @@ class Status(models.Model):
     color = models.CharField(default='#fff', max_length=1000)
     label = models.CharField(default='', max_length=1000)
     status_type = models.CharField(default='confirmation', max_length=1000)
+    order = models.IntegerField(default=0)
